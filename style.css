@@ -1,0 +1,122 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+#video-modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 12px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 9991;
+}
+#video-modal .video-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0.9);
+  z-index: 30;
+}
+#video-modal .video-modal-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#video-modal .video-modal-close {
+  background-color: #fff;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  border: solid 2px #000;
+  padding: 0;
+  z-index: 50;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(180deg);
+}
+#video-modal .video-modal-close span {
+  display: none;
+}
+#video-modal .video-modal-close:before, #video-modal .video-modal-close:after {
+  content: "";
+  width: 60%;
+  height: 3px;
+  background-color: #000;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+#video-modal .video-modal-close:before {
+  transform: rotate(42deg);
+}
+#video-modal .video-modal-close:after {
+  transform: rotate(-42deg);
+}
+#video-modal .video-modal-close:focus {
+  outline: none;
+}
+#video-modal .video-modal-close:hover {
+  background-color: #000;
+}
+#video-modal .video-modal-close:hover:before, #video-modal .video-modal-close:hover:after {
+  background-color: #fff;
+}
+#video-modal.launched {
+  opacity: 1;
+  visibility: visible;
+}
+#video-modal.launched .video-modal-close {
+  transform: rotate(0deg);
+}
+#video-modal.launched .video-modal-container {
+  transform: scale(1);
+}
+#video-modal.launched iframe {
+  position: relative;
+  z-index: 10;
+  border-radius: 12px;
+  box-shadow: 0 0 19px rgba(0, 0, 0, 0.16);
+  width: 100%;
+  height: 100vh;
+  max-height: 85vh;
+  background-color: #000;
+}
+@media (max-width: 767px) {
+  #video-modal.launched iframe {
+    max-height: 50vh;
+  }
+}
